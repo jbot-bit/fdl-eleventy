@@ -1,5 +1,5 @@
 slug,title,filename,date
-e001,invoice 0315,inv-0315.pdf,2/05/2025
-e002,invoice 0321,inv-0321.pdf,6/05/2025
-e003,invoice 0315 edited after 18-6,inv-0315-altered.pdf,6/05/2025
-e004,parts removed from the vehicle are pictured in the boot post-service.,parts-in-boot.jpg,1/01/2000
+e001,Invoice 0315,INV-0315.pdf,2025-05-02
+e002,Invoice 0321,INV-0321.pdf,2025-05-06
+e003,Invoice 0315 (edited after 18/6),INV-0315_altered.pdf,2025-06-18
+e004,Parts removed from vehicle,parts_in_boot.jpg,2025-06-30
