@@ -1,0 +1,20 @@
+---
+pagination:
+  data: evidence
+  size: 1
+  alias: item
+permalink: "evidence/{{ item.slug }}/"
+layout: "layout.njk"
+---
+<h1>Evidence: {{ item.title }}</h1>
+<p><strong>Date:</strong> {{ item.date }}</p>
+<p><strong>Unique ID:</strong> {{ item.slug }}</p>
+<p><a href="/fdl-evidence/{{ item.filename }}" target="_blank">View Source File: {{ item.filename }}</a></p>
+<h2>Related Chronology Events</h2>
+<ul>
+  {%- for event in chronology -%}
+    {%- if event.evidence and item.slug in event.evidence.split(',') -%}
+      <li><a href="/#{{ event.date }}">{{ event.date }}: {{ event.description }}</a></li>
+    {%- endif -%}
+  {%- endfor -%}
+</ul>

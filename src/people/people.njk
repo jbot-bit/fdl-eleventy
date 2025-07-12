@@ -1,0 +1,19 @@
+---
+pagination:
+  data: people
+  size: 1
+  alias: item
+permalink: "people/{{ item.slug }}/"
+layout: "layout.njk"
+---
+<h1>Person: {{ item.name }}</h1>
+<p><strong>Role:</strong> {{ item.role }}</p>
+<p><strong>Unique ID:</strong> {{ item.slug }}</p>
+<h2>Related Chronology Events</h2>
+<ul>
+  {%- for event in chronology -%}
+    {%- if event.people and item.slug in event.people.split(',') -%}
+      <li><a href="/#{{ event.date }}">{{ event.date }}: {{ event.description }}</a></li>
+    {%- endif -%}
+  {%- endfor -%}
+</ul>
