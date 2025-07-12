@@ -1,13 +1,12 @@
 {
   "name": "fdl-eleventy",
   "version": "1.0.0",
-  "description": "Forensic Digital Ledger built with Eleventy",
+  "description": "Forensic Digital Ledger using Eleventy + JSON",
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@11ty/eleventy-plugin-csv": "^1.0.0"
+    "@11ty/eleventy": "^2.0.1"
   }
 }
