@@ -1,13 +1,13 @@
 {
   "name": "fdl-eleventy",
   "version": "1.0.0",
-  "description": "FDL Evidence Portal",
+  "description": "Forensic Digital Ledger built with Eleventy",
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "csv-parse": "^6.0.0"
+    "@11ty/eleventy-plugin-csv": "^1.0.0"
   }
 }

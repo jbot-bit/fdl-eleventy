@@ -20,9 +20,9 @@ title: "Chronology of Events"
       <td>{{ event.description }}</td>
       <td>
         {%- for slug in event.people.split(',') -%}
-          {%- set person = collections.people | findBySlug(slug.trim()) -%}
+          {%- set person = people | findBySlug(slug.trim()) -%}
           {%- if person -%}
-            <a href="{{ person.url }}">{{ person.data.name }}</a>{% if not loop.last %}, {% endif %}
+            <a href="/people/{{ person.slug }}/">{{ person.name }}</a>{% if not loop.last %}, {% endif %}
           {%- else -%}
             <span class="tag is-danger">{{ slug.trim() }}</span>
           {%- endif -%}
@@ -30,9 +30,9 @@ title: "Chronology of Events"
       </td>
       <td>
         {%- for slug in event.evidence.split(',') -%}
-          {%- set evidence_item = collections.evidence | findBySlug(slug.trim()) -%}
+          {%- set evidence_item = evidence | findBySlug(slug.trim()) -%}
           {%- if evidence_item -%}
-            <a href="{{ evidence_item.url }}">{{ evidence_item.data.title }}</a>{% if not loop.last %}, {% endif %}
+            <a href="/evidence/{{ evidence_item.slug }}/">{{ evidence_item.title }}</a>{% if not loop.last %}, {% endif %}
           {%- else -%}
             <span class="tag is-danger">{{ slug.trim() }}</span>
           {%- endif -%}

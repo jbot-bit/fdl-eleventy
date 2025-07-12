@@ -1,20 +1,18 @@
-// --- FILE: .eleventy.js ---
-const { parse } = require("csv-parse/sync");
+const eleventyPluginCsv = require("@11ty/eleventy-plugin-csv");
 
-module.exports = function(eleventyConfig) {
-  // ✅ Support for CSV data files in src/_data/
-  eleventyConfig.addDataExtension("csv", contents =>
-    parse(contents, { columns: true, skip_empty_lines: true })
-  );
+module.exports = function (eleventyConfig) {
+  // Use the CSV plugin to reliably load data
+  eleventyConfig.addPlugin(eleventyPluginCsv);
 
-  // Filter: find collection item by slug
-  eleventyConfig.addFilter("findBySlug", (collection, slug) =>
-    collection?.find(item => item.data.slug === slug)
-  );
+  // Filter to find items by slug
+  eleventyConfig.addFilter("findBySlug", (collection, slug) => {
+    if (!collection) return;
+    return collection.find((item) => item.slug === slug); // Simplified for plugin data
+  });
 
-  // Passthrough static folders
-  eleventyConfig.addPassthroughCopy("src/assets/");
-  eleventyConfig.addPassthroughCopy("fdl-evidence/");
+  // Passthrough static assets and evidence files
+  eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("fdl-evidence");
 
   return {
     dir: {
@@ -23,7 +21,7 @@ module.exports = function(eleventyConfig) {
       data: "_data",
       includes: "_includes",
     },
-    templateFormats: ["md", "njk", "html", "csv"],
+    templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
   };

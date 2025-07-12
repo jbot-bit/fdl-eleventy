@@ -3,7 +3,7 @@ layout: "layout.njk"
 title: "Chronology of Events"
 ---
 <h1>{{ title }}</h1>
-<p>This page presents a factual, chronological record of events based on the available evidence.</p>
+<p>This page presents a factual, chronological record of events based on the available evidence. - in development - </p>
 
 <table class="table">
   <thead>
